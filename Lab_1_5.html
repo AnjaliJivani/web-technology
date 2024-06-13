@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script> -->
+</head>
+<body>
+    <script>
+        //palindrome
+        n=parseInt(prompt("enter a nubmer to check weather it is palindrome or not"));
+        a=n;
+        newnum=0;
+        let c;
+        while(a>0){
+            // a%10=c;
+            c=a%10;
+            newnum=(newnum*10)+c;
+            a=Math.floor(a/10);
+
+        }
+        if(newnum===n){
+            document.write("given number is palindrome");
+        }
+        else{
+            document.write("given number is not palindrome");
+        }
+    </script>
+    
+</body>
+</html>

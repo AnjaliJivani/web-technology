@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script> -->
+</head>
+<body>
+    <!-- 153=1^3+5^3+3^3 -->
+   <script>
+    // n=parseInt(prompt("enter a number to check whether it is armstrong or not"));
+    // a=n;
+    // count=0;
+    // while(a!=0){
+    //     a=Math.floor(a/10);
+    //  count++;
+    // }
+    // document.write(count);
+    // newno=0;
+    // while(a>=0){
+    //     // a=Math.floor(a/10);
+    //     let d=a%10;
+    //     newno=newno+Math.pow(d,count);
+    //     a=Math.floor(a/10);
+    //     // document.write(newno);
+        
+    // }
+    // if(n===newno){
+    //     document.write("given number is armstrong");
+    // }
+    // else{
+    //     document.write("not armstrong");
+    // }
+    // document.write(newno);
+    // Prompt user to enter a number
+let number = parseInt(prompt("Enter a number to check whether it is an Armstrong number or not"));
+
+// Store the original number to compare later
+let originalNumber = number;
+
+// Find the number of digits in the number
+let numberOfDigits = 0;
+let temp = number;
+while (temp > 0) {
+    temp = Math.floor(temp / 10);
+    numberOfDigits++;
+}
+
+// Calculate the sum of the digits each raised to the power of the number of digits
+let sum = 0;
+temp = number;
+while (temp > 0) {
+    let digit = temp % 10;
+    sum += Math.pow(digit, numberOfDigits);
+    temp = Math.floor(temp / 10);
+}
+
+// Check if the original number is equal to the sum
+if (sum === originalNumber) {
+    document.write("The given number is an Armstrong number");
+} else {
+    document.write("The given number is not an Armstrong number");
+}
+
+   </script>
+
+    
+</body>
+</html>
