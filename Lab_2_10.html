@@ -1,0 +1,78 @@
+<!-- Write an HTML page with JavaScript that takes a number from popup box in the range 0-
+999 and display it in words. If the number is out of range, it should show “out of range” and 
+if it is not a number ,it should show “not a number” message in the result box. (A -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number to Words</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Number to Words Converter</h1>
+<p>Click the button to enter a number and see it in words.</p>
+<button onclick="convertNumber()">Convert Number</button>
+<div class="result" id="resultBox"></div>
+
+<script>
+    function convertNumber() {
+        let number = prompt("Please enter a number between 0 and 999:");
+        let resultBox = document.getElementById("resultBox");
+
+        if (isNaN(number)) {
+            resultBox.textContent = "Not a number";
+        } else {
+            let num = parseInt(number);
+            if (num < 0 || num > 999) {
+                resultBox.textContent = "Out of range";
+            } else {
+                resultBox.textContent = numberToWords(num);
+            }
+        }
+    }
+
+    function numberToWords(num) {
+        const ones = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
+        const teens = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
+        const tens = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
+        
+        if (num === 0) return "Zero";
+
+        let words = "";
+
+        if (Math.floor(num / 100) > 0) {
+            words += ones[Math.floor(num / 100)] + " Hundred ";
+            num %= 100;
+        }
+
+        if (num > 0) {
+            if (num < 10) {
+                words += ones[num];
+            } else if (num < 20) {
+                words += teens[num - 10];
+            } else {
+                words += tens[Math.floor(num / 10)];
+                if (num % 10 > 0) {
+                    words += " " + ones[num % 10];
+                }
+            }
+        }
+
+        return words.trim();
+    }
+</script>
+
+</body>
+</html>

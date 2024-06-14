@@ -1,0 +1,46 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script> -->
+</head>
+<body>
+    <script>
+        a=parseInt(prompt("enter firstdigit of range a"));
+        b=parseInt(prompt("enter last digit of range"));
+      count=0;
+        if(a>b){
+            document.write("enter valid range")
+        }
+        else{
+            
+                for(i=a;i<=b;i++){
+                    flag=false;
+                    for(j=2;j<i;j++){
+                    if(i%j==0){
+                      flag=true;
+                    }
+                }
+                if(flag==true){
+                   document.write("number is not prime    . :"+a);
+                }
+                else{
+                    document.write("number is prime   :"+a);
+                }
+                document.write("</br>");
+                a++;
+                
+                
+               
+            }
+        }
+    </script>
+    
+</body>
+</html>
